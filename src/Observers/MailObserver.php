@@ -10,11 +10,15 @@ use ObserverDemoApp\Venue\Visitor;
 
 class MailObserver implements ObserverInterface
 {
-    public function handle(EventsEnum $event, mixed $observable): void {
-        if ($event === EventsEnum::VisitorEnteredVenue) {
-            /** @var Visitor $visitor */
-            $visitor = $observable;
-            echo "Mail to visitor: Welcome, " . $visitor?->getName() . "!" . PHP_EOL;
-        }
+    public function handle(EventsEnum $event, mixed $observable): void
+    {
+        match ($event) {
+            EventsEnum::VisitorEnteredVenue => $this->notifyVisitor($observable)
+        };
+    }
+
+    public function notifyVisitor(Visitor $visitor): void
+    {
+        echo 'Mail to visitor: Welcome, '.$visitor->getName().'!'.PHP_EOL;
     }
 }
