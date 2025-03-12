@@ -1,15 +1,21 @@
 <?php
 
 declare(strict_types=1);
+
 namespace ObserverDemoApp\Traits;
+
 use ObserverDemoApp\Interfaces\ObserverInterface;
 use ObserverDemoApp\Venue\EventsEnum;
 
 trait Observable
 {
+    /**
+     * @var array<ObserverInterface>
+     */
     private array $observers = [];
 
-    public function addObserver(ObserverInterface $observer): void {
+    public function addObserver(ObserverInterface $observer): void
+    {
         $this->observers[] = $observer;
     }
 

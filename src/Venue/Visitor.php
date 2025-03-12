@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ObserverDemoApp\Venue;
@@ -6,11 +7,14 @@ namespace ObserverDemoApp\Venue;
 use ObserverDemoApp\Interfaces\VisitorInterface;
 use ObserverDemoApp\Traits\Observable;
 
-class Visitor implements VisitorInterface {
+class Visitor implements VisitorInterface
+{
     use Observable;
 
     private string $name;
+
     private bool $isOnVenue = false;
+
     private Manager $manager;
 
     public function __construct(string $name)
@@ -42,5 +46,4 @@ class Visitor implements VisitorInterface {
     {
         $this->isOnVenue = true;
     }
-
 }

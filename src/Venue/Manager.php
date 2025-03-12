@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ObserverDemoApp\Venue;
@@ -16,5 +17,4 @@ class Manager
     {
         return $this->name;
     }
-
 }
