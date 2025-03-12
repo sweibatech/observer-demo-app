@@ -19,8 +19,11 @@ class ManagerObserver implements ObserverInterface
 
     private function notifyManager(Visitor $visitor): void
     {
-        echo 'Message for manager '.$visitor->getManager()->getName()
-            .': visitor '.$visitor->getName().' entered the venue'
+
+        echo 'Message for '.$visitor->getManager()->getName()
+            .': new visitor '.$visitor->getName().' entered the venue'
             .PHP_EOL;
+
+        $visitor->getManager()->addVisitorToWorkList($visitor);
     }
 }

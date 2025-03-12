@@ -9,6 +9,7 @@ use ObserverDemoApp\Venue\EventsEnum;
 use ObserverDemoApp\Venue\VisitorFactory;
 
 $visitor = VisitorFactory::create('John Doe');
+$visitor = VisitorFactory::registerWithName('John Doe');
 
 $visitor->addObserver(new ManagerObserver);
 $visitor->addObserver(new MailObserver);

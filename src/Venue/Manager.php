@@ -4,17 +4,25 @@ declare(strict_types=1);
 
 namespace ObserverDemoApp\Venue;
 
+use ObserverDemoApp\Interfaces\VisitorInterface;
+use ObserverDemoApp\Traits\WithName;
+
 class Manager
 {
-    private string $name;
+    use WithName;
 
-    public function __construct(string $name)
+    /**
+     * @var array<VisitorInterface>
+     */
+    protected array $visitorsWorklist = [];
+
+    public function addVisitorToWorkList(VisitorInterface $visitor): void
     {
-        $this->name = $name;
+        $this->visitorsWorklist[] = $visitor;
     }
 
-    public function getName(): string
+    public function shouldIntroduceToVisitor(VisitorInterface $visitor): bool
     {
-        return $this->name;
+        return in_array($visitor, $this->visitorsWorklist, true);
     }
 }

@@ -19,6 +19,7 @@ class MailObserver implements ObserverInterface
 
     public function notifyVisitor(Visitor $visitor): void
     {
-        echo 'Mail to visitor: Welcome, '.$visitor->getName().'!'.PHP_EOL;
+        echo 'Mail to visitor: Welcome, '.$visitor->getName()
+            .'! Your personal manager is: '.$visitor->getManager()->getName().PHP_EOL;
     }
 }

@@ -14,12 +14,14 @@ class ManagerFactory
     protected static function getRandomManager(): Manager
     {
         $managers = [
-            'A',
-            'B',
-            'C',
+            'Manager A',
+            'Manager B',
+            'Manager C',
         ];
         $randKey = array_rand($managers);
+        $manager = new Manager;
+        $manager->setName($managers[$randKey]);
 
-        return new Manager($managers[$randKey]);
+        return $manager;
     }
 }

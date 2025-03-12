@@ -6,9 +6,10 @@ namespace ObserverDemoApp\Venue;
 
 class VisitorFactory
 {
-    public static function create(string $name): Visitor
+    public static function registerWithName(string $name): Visitor
     {
-        $visitor = new Visitor($name);
+        $visitor = new Visitor;
+        $visitor->setName($name);
         $visitor->assignManager(ManagerFactory::getAvailableManager());
 
         return $visitor;

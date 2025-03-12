@@ -6,21 +6,15 @@ namespace ObserverDemoApp\Venue;
 
 use ObserverDemoApp\Interfaces\VisitorInterface;
 use ObserverDemoApp\Traits\Observable;
+use ObserverDemoApp\Traits\WithName;
 
 class Visitor implements VisitorInterface
 {
-    use Observable;
-
-    private string $name;
+    use Observable, WithName;
 
     private bool $isOnVenue = false;
 
     private Manager $manager;
-
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
 
     public function assignManager(Manager $manager): void
     {
@@ -30,11 +24,6 @@ class Visitor implements VisitorInterface
     public function getManager(): Manager
     {
         return $this->manager;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
     }
 
     public function isOnVenue(): bool

@@ -2,15 +2,22 @@
     "require-dev": {
         "phpstan/phpstan": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.71",
-        "laravel/pint": "^1.21"
+        "laravel/pint": "^1.21",
+        "pestphp/pest": "^3.7"
     },
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G src",
-        "pint": "./vendor/bin/pint src"
+        "pint": "./vendor/bin/pint src",
+        "pest": "./vendor/bin/pest"
     },
     "autoload": {
         "psr-4": {
             "ObserverDemoApp\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
